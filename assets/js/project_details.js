@@ -122,15 +122,15 @@ The admin functionality is cleverly hidden behind a long-press gesture on the ap
     ],
   },
   "remote-sensing-system": {
-    title: "iAutomatia - Industrial Fire Suppression & Wildfire Defense System",
+    title: "Industrial Fire Suppression & Wildfire Defense System",
     type: "Flutter - Industrial IoT (iOS, Android, Web)",
-    duration: "Ongoing - Phase 1 Complete, Phase 2 In Development",
+    duration: "4 weeks",
     description: `A sophisticated industrial IoT mobile application developed in Flutter that enables real-time remote monitoring and control of fire suppression and wildfire defense systems. Built as a proof-of-concept and production system for government demonstrations, the application communicates bidirectionally with Unitronics UCR (Universal Cellular Router) industrial gateway devices via Modbus TCP protocol.
 
 The system architecture consists of a Flutter mobile app acting as a Modbus master, UCR routers serving as industrial gateways managing local WiFi networks and cellular connectivity, and PLC (Programmable Logic Controller) devices functioning as slave devices. This enables comprehensive control of critical fire safety infrastructure including water pumps, pressure valves, zone control systems, and distributed sensor arrays from a mobile device.
 
 A key architectural innovation is the hybrid connectivity solution that automatically switches between direct local WiFi connections (for sub-second response times) and remote internet-based relay servers (for off-site monitoring). This eliminates the traditional trade-off between local responsiveness and remote accessibility, enabling emergency responders to monitor and control systems from anywhere while maintaining industrial-grade reliability.`,
-    banner: "./assets/images/projects/iautomatia/iautomatia_banner.jpg",
+    banner: "./assets/images/projects/iautomatia/iautomatia_banner.webp",
     features: [
       "Bidirectional Modbus TCP communication with industrial gateway devices",
       "Real-time sensor monitoring (temperature, pressure, digital inputs, analog sensors)",
@@ -147,7 +147,7 @@ A key architectural innovation is the hybrid connectivity solution that automati
       "Configuration-driven device profile system",
       "Socket-based communication manager with operation queuing",
       "Error recovery with automatic reconnection mechanisms",
-      "Support for multiple concurrent device connections",
+      // "Support for multiple concurrent device connections",
     ],
     techStack: [
       "Flutter",
@@ -155,9 +155,9 @@ A key architectural innovation is the hybrid connectivity solution that automati
       "Modbus TCP Protocol",
       "Socket Programming (dart:io)",
       "Unitronics UCR Gateway",
-      "Node.js (Backend relay server)",
-      "Raspberry Pi (Optional local deployment)",
-      "AWS/Heroku (Cloud deployment options)",
+      // "Node.js (Backend relay server)",
+      // "Raspberry Pi (Optional local deployment)",
+      // "AWS/Heroku (Cloud deployment options)",
       "TestFlight (iOS distribution)",
       "App Store Connect",
       "RustDesk (Remote troubleshooting)",
@@ -165,40 +165,40 @@ A key architectural innovation is the hybrid connectivity solution that automati
     ],
     screenshots: {
       mobile: [
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_connection_screen.png",
-          alt: "Connection Configuration Screen",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_monitoring_dashboard.png",
-          alt: "Real-time Sensor Monitoring Dashboard",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_control_panel.png",
-          alt: "Fire Suppression System Control Panel",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_zone_control.png",
-          alt: "Zone-based Fire Control Interface",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_system_status.png",
-          alt: "System Status and Service Monitoring",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_activity_logs.png",
-          alt: "Detailed Activity Logs and Debugging Information",
-        },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_connection_screen.png",
+        //   alt: "Connection Configuration Screen",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_monitoring_dashboard.png",
+        //   alt: "Real-time Sensor Monitoring Dashboard",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_control_panel.png",
+        //   alt: "Fire Suppression System Control Panel",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_zone_control.png",
+        //   alt: "Zone-based Fire Control Interface",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_system_status.png",
+        //   alt: "System Status and Service Monitoring",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_activity_logs.png",
+        //   alt: "Detailed Activity Logs and Debugging Information",
+        // },
       ],
       tablet: [
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_tablet_dashboard.png",
-          alt: "Tablet Dashboard with Full System Overview",
-        },
-        {
-          src: "./assets/images/projects/iautomatia/iautomatia_tablet_control.png",
-          alt: "Tablet Control Interface with Zone Management",
-        },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_tablet_dashboard.png",
+        //   alt: "Tablet Dashboard with Full System Overview",
+        // },
+        // {
+        //   src: "./assets/images/projects/iautomatia/iautomatia_tablet_control.png",
+        //   alt: "Tablet Control Interface with Zone Management",
+        // },
       ],
     },
     videos: [
@@ -301,7 +301,7 @@ A key architectural innovation is the hybrid connectivity solution that automati
       "Delivered iOS application through TestFlight with enterprise-grade reliability requirements",
       "Built comprehensive debug/logging system for industrial troubleshooting",
       "Successfully navigated complex register addressing and state management for safety-critical system",
-      "Validated proof-of-concept in multiple government demonstration sessions",
+      "Validated proof-of-concept and have successfully given demonstration sessions",
     ],
   },
 };
