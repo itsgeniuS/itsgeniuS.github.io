@@ -81,7 +81,9 @@
     border-radius: 4px;
     color: hsl(45, 100%, 71%);
     font-size: 0.8rem;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
 }
 
 /* Project Sections */
@@ -358,6 +360,30 @@
 
 .close:hover {
     color: #fff;
+}
+
+/* Store Links / Badges */
+.store-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.store-badge-link {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.store-badge-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
+}
+
+.store-badge {
+    height: 50px;
+    width: auto;
+    border-radius: 8px;
 }
 
 /* Responsive Design */

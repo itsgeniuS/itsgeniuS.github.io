@@ -1,5 +1,131 @@
 // Project Details Data Structure
 const projectsData = {
+  juansmart: {
+    title: "Juansmart E-commerce App",
+    type: "Flutter - Cross Platform (Android, iOS)",
+    duration: "Completed",
+    storeLinks: {
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.huewine.juansmart.shop",
+      appStore: "https://apps.apple.com/app/6759216444",
+    },
+    description: `A scalable, modular e-commerce mobile application built using Flutter with clean architecture principles. The app follows MVVM architecture with Riverpod for state management and GoRouter for navigation, ensuring maintainability and testability across the codebase.
+
+The project is structured with a clear separation of concerns — featuring a core layer for API communication (Dio with custom interceptors), routing, and base classes, a features layer organized by domain (e.g., login with data sources, repositories, use cases, and presentation), and a shared layer for reusable components, models, and extensions.
+
+The app supports multiple environments (Development, Staging, Production) with dedicated entry points, enabling seamless switching between API endpoints during development and release cycles. Code generation is leveraged through Freezed for immutable state classes and JSON serialization, reducing boilerplate and improving type safety.
+
+The application has been submitted to both the Google Play Store and Apple App Store and is set to go live soon.`,
+    banner: "./assets/images/projects/juansmart/juansmart_thumbnail_2.webp",
+    features: [
+      "Clean MVVM architecture with clear separation of concerns",
+      "Riverpod state management for reactive and testable UI",
+      "GoRouter for declarative, type-safe navigation",
+      "Dio HTTP client with custom header and logging interceptors",
+      "Multi-environment support (Dev, Stage, Production)",
+      "Freezed for immutable state and model classes with code generation",
+      "Feature-based modular folder structure",
+      "Base view and viewmodel abstractions for consistent patterns",
+      "Use case pattern for business logic encapsulation",
+      "Global progress and message providers for unified UX",
+      "Localization support with Flutter gen-l10n",
+      "Automated build scripts for Android AAB and iOS IPA releases",
+      "Version management with configuration-driven build numbers",
+    ],
+    techStack: [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "GoRouter",
+      "Dio",
+      "Freezed",
+      "Build Runner",
+      "Google Play Store",
+      "Apple App Store",
+      "Push Notifications (Firebase Cloud Messaging)",
+      "Crash Reporting (Firebase Crashlytics)",
+      "Social Login - Google",
+      "Clean architechture principles (MVVM, Use Cases, Repositories)",
+    ],
+    screenshots: {
+      mobile: [
+        {
+          src: "./assets/images/projects/juansmart/ios/juansmart_home.webp",
+          alt: "iOS - Home Screen",
+        },
+        {
+          src: "./assets/images/projects/juansmart/ios/juansmart_categories.webp",
+          alt: "iOS - Categories Screen",
+        },
+        {
+          src: "./assets/images/projects/juansmart/ios/juansmart_login.webp",
+          alt: "iOS - Login Screen",
+        },
+        {
+          src: "./assets/images/projects/juansmart/android/juansmart_home.webp",
+          alt: "Android - Home Screen",
+        },
+        {
+          src: "./assets/images/projects/juansmart/android/juansmart_login.webp",
+          alt: "Android - Login Screen",
+        },
+        {
+          src: "./assets/images/projects/juansmart/android/juansmart_account.webp",
+          alt: "Android - Account Screen",
+        },
+      ],
+    },
+    videos: [],
+    challenges: [
+      {
+        title: "Scalable Architecture Design",
+        description:
+          "Designing a modular architecture that scales well as new features are added was critical. Implementing MVVM with Riverpod required careful planning of provider scoping, dependency injection, and state flow to avoid tight coupling between features while maintaining a consistent development pattern across the team.",
+      },
+      {
+        title: "Multi-Environment Configuration",
+        description:
+          "Setting up separate entry points for Dev, Stage, and Production environments with different API endpoints, configurations, and build settings required a well-thought-out approach. Each environment needed its own Dio client configuration, interceptors, and error handling strategies.",
+      },
+      {
+        title: "App Store Submission Process",
+        description:
+          "Navigating the submission requirements for both Google Play Store and Apple App Store simultaneously involved managing different signing configurations, build pipelines, version numbering strategies, and compliance requirements for each platform.",
+      },
+    ],
+    learnings: [
+      {
+        title: "MVVM with Riverpod is Powerful",
+        description:
+          "Combining MVVM architecture with Riverpod provides excellent separation of concerns and testability. The provider-based dependency injection makes it easy to swap implementations and write unit tests for viewmodels and use cases independently.",
+      },
+      {
+        title: "Code Generation Saves Time",
+        description:
+          "Using Freezed and build_runner for generating immutable state classes, union types, and JSON serialization code significantly reduces boilerplate and eliminates entire categories of bugs related to mutable state and manual serialization.",
+      },
+      {
+        title: "Build Scripts are Essential for Release Management",
+        description:
+          "Automating the build process with custom shell scripts for version bumping, building AABs and IPAs, and managing platform-specific configurations streamlines the release workflow and reduces human error during deployments.",
+      },
+    ],
+    clientRequirements: [
+      "Cross-platform mobile app for Android and iOS",
+      "Scalable architecture supporting future feature additions",
+      "Multi-environment support for development workflow",
+      "Play Store and App Store distribution",
+      "Clean, maintainable codebase following industry best practices",
+    ],
+    keyAccomplishments: [
+      "Built a production-ready e-commerce app with clean MVVM architecture",
+      "Implemented comprehensive multi-environment setup with separate entry points",
+      "Established automated build and release pipeline for both platforms",
+      "Successfully submitted to Google Play Store and Apple App Store",
+      "Created reusable base classes and patterns for rapid feature development",
+      "Implemented robust API layer with Dio interceptors for logging and authentication",
+    ],
+  },
   "chaat-anna": {
     title: "Chaat Anna Feedback App",
     type: "Flutter - Cross Platform (Android, iOS, Web)",
@@ -373,12 +499,60 @@ function loadProjectDetails() {
   if (project.learnings.length > 0) {
     loadLearnings(project.learnings);
   }
+
+  // Set store links if available
+  if (project.storeLinks) {
+    loadStoreLinks(project.storeLinks);
+  }
+}
+
+// Function to load store links
+function loadStoreLinks(storeLinks) {
+  const storeLinksSection = document.getElementById("storeLinksSection");
+  const storeLinksContainer = document.getElementById("storeLinksContainer");
+
+  const links = [];
+
+  if (storeLinks.playStore) {
+    links.push(`
+      <a href="${storeLinks.playStore}" target="_blank" class="store-badge-link">
+        <img src="./assets/images/badges/google_play.webp" alt="Get it on Google Play" class="store-badge">
+      </a>
+    `);
+  }
+
+  if (storeLinks.appStore) {
+    links.push(`
+      <a href="${storeLinks.appStore}" target="_blank" class="store-badge-link">
+        <img src="./assets/images/badges/app_store.webp" alt="Download on the App Store" class="store-badge">
+      </a>
+    `);
+  }
+
+  if (storeLinks.medium) {
+    links.push(`
+      <a href="${storeLinks.medium}" target="_blank" class="store-badge-link">
+        <img src="./assets/images/badges/medium.webp" alt="Read on Medium" class="store-badge">
+      </a>
+    `);
+  }
+
+  if (links.length > 0) {
+    storeLinksContainer.innerHTML = links.join("");
+    storeLinksSection.style.display = "block";
+  }
 }
 
 // Function to load screenshots
 function loadScreenshots(screenshots) {
   const mobileContainer = document.getElementById("mobileScreenshots");
   const tabletContainer = document.getElementById("tabletScreenshots");
+  const tabletSection = tabletContainer.closest(".screenshot-section");
+
+  // Hide tablet section if no tablet screenshots
+  if (!screenshots.tablet || screenshots.tablet.length === 0) {
+    tabletSection.style.display = "none";
+  }
 
   // Load mobile screenshots
   if (screenshots.mobile && screenshots.mobile.length > 0) {
@@ -391,7 +565,7 @@ function loadScreenshots(screenshots) {
                         <ion-icon name="expand-outline"></ion-icon>
                     </div>
                 </div>
-            `
+            `,
       )
       .join("");
   }
@@ -407,7 +581,7 @@ function loadScreenshots(screenshots) {
                         <ion-icon name="expand-outline"></ion-icon>
                     </div>
                 </div>
-            `
+            `,
       )
       .join("");
   }
@@ -433,7 +607,7 @@ function loadVideos(videos) {
                     : ""
                 }
             </div>
-        `
+        `,
     )
     .join("");
 
@@ -452,7 +626,7 @@ function loadChallenges(challenges) {
                 <h4 class="challenge-title">${challenge.title}</h4>
                 <p class="challenge-description">${challenge.description}</p>
             </div>
-        `
+        `,
     )
     .join("");
 
@@ -471,7 +645,7 @@ function loadLearnings(learnings) {
                 <h4 class="learning-title">${learning.title}</h4>
                 <p class="learning-description">${learning.description}</p>
             </div>
-        `
+        `,
     )
     .join("");
 
