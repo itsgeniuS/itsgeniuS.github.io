@@ -273,7 +273,6 @@ A key architectural innovation is the hybrid connectivity solution that automati
       "Configuration-driven device profile system",
       "Socket-based communication manager with operation queuing",
       "Error recovery with automatic reconnection mechanisms",
-      // "Support for multiple concurrent device connections",
     ],
     techStack: [
       "Flutter",
@@ -281,9 +280,6 @@ A key architectural innovation is the hybrid connectivity solution that automati
       "Modbus TCP Protocol",
       "Socket Programming (dart:io)",
       "Unitronics UCR Gateway",
-      // "Node.js (Backend relay server)",
-      // "Raspberry Pi (Optional local deployment)",
-      // "AWS/Heroku (Cloud deployment options)",
       "TestFlight (iOS distribution)",
       "App Store Connect",
       "RustDesk (Remote troubleshooting)",
@@ -291,51 +287,24 @@ A key architectural innovation is the hybrid connectivity solution that automati
     ],
     screenshots: {
       mobile: [
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_connection_screen.png",
-        //   alt: "Connection Configuration Screen",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_monitoring_dashboard.png",
-        //   alt: "Real-time Sensor Monitoring Dashboard",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_control_panel.png",
-        //   alt: "Fire Suppression System Control Panel",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_zone_control.png",
-        //   alt: "Zone-based Fire Control Interface",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_system_status.png",
-        //   alt: "System Status and Service Monitoring",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_activity_logs.png",
-        //   alt: "Detailed Activity Logs and Debugging Information",
-        // },
+        {
+          src: "./assets/images/projects/iautomatia/iautomatia_app_screen.jpeg",
+          alt: "Connection Configuration Screen",
+        },
       ],
-      tablet: [
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_tablet_dashboard.png",
-        //   alt: "Tablet Dashboard with Full System Overview",
-        // },
-        // {
-        //   src: "./assets/images/projects/iautomatia/iautomatia_tablet_control.png",
-        //   alt: "Tablet Control Interface with Zone Management",
-        // },
-      ],
+      tablet: [],
     },
     videos: [
-      // {
-      //   title: "System Demo - Live Monitoring and Control",
-      //   embedUrl: "https://drive.google.com/file/d/.../preview",
-      // },
-      // {
-      //   title: "Hybrid Connectivity Architecture Walkthrough",
-      //   embedUrl: "https://drive.google.com/file/d/.../preview",
-      // },
+      {
+        title: "System Demo - Custom registry updates",
+        embedUrl:
+          "https://drive.google.com/file/d/1_HkSnC5FNCPdJjN0PgOZYhRqAfzrERbt/preview",
+      },
+      {
+        title: "POC Demo",
+        embedUrl:
+          "https://drive.google.com/file/d/13FHYEWYnxPCDOmRyixE1tcIDaKVlFbhX/preview",
+      },
     ],
     challenges: [
       {
@@ -599,7 +568,7 @@ function loadVideos(videos) {
                 <div class="video-wrapper">
                     <iframe src="${
                       video.embedUrl
-                    }" allowfullscreen="" loading="lazy"></iframe>
+                    }" allowfullscreen="" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
                 </div>
                 ${
                   video.title
@@ -682,4 +651,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load project details when page loads
   loadProjectDetails();
+
+  // Scroll to top button
+  const scrollToTopBtn = document.getElementById("scrollToTop");
+  if (scrollToTopBtn) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 });

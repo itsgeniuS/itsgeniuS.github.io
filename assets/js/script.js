@@ -140,20 +140,31 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
+// activate a page by name
+function activatePage(pageName) {
+  for (let i = 0; i < pages.length; i++) {
+    if (pageName === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+}
+
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+    const pageName = this.innerHTML.toLowerCase();
+    activatePage(pageName);
+    window.location.hash = pageName;
+    window.scrollTo(0, 0);
   });
+}
+
+// activate page from URL hash on load
+const hash = window.location.hash.replace("#", "").toLowerCase();
+if (hash) {
+  activatePage(hash);
 }

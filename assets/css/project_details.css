@@ -274,34 +274,59 @@
     line-height: 1.6;
 }
 
-/* Back Button Container */
-.back-button-container {
-    margin-top: 3rem;
-    text-align: center;
-}
-
-.back-button {
+/* Back Button - Top */
+.back-button-top {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background-color: hsl(45, 100%, 71%, 0.1);
-    border: 2px solid hsl(45, 100%, 71%);
-    border-radius: 4px;
-    color: hsl(45, 100%, 71%);
+    gap: 0.4rem;
+    color: hsl(0, 0%, 70%);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
 }
 
-.back-button:hover {
+.back-button-top:hover {
+    color: hsl(45, 100%, 71%);
+}
+
+.back-button-top ion-icon {
+    font-size: 1rem;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     background-color: hsl(45, 100%, 71%);
     color: hsl(0, 0%, 15%);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    z-index: 99;
 }
 
-.back-button ion-icon {
-    font-size: 1.2rem;
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: hsl(45, 100%, 60%);
 }
 
 /* Image Modal */
