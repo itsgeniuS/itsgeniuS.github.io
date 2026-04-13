@@ -67,6 +67,18 @@
 }
 
 /* Tech Stack */
+.project-tech-info {
+    margin-top: 1.5rem;
+    padding: 1.5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-tech-info .meta-title {
+    margin-bottom: 1rem;
+}
+
 .tech-stack-list {
     display: flex;
     flex-wrap: wrap;
