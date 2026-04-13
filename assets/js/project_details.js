@@ -15,13 +15,16 @@ The project is structured with a clear separation of concerns — featuring a co
 
 The app supports multiple environments (Development, Staging, Production) with dedicated entry points, enabling seamless switching between API endpoints during development and release cycles. Code generation is leveraged through Freezed for immutable state classes and JSON serialization, reducing boilerplate and improving type safety.
 
-The application has been submitted to both the Google Play Store and Apple App Store and is set to go live soon.`,
+Beyond the customer-facing storefront, the app includes a built-in seller and admin panel within the same codebase. After a privilege check at login, admin and seller users are routed to a dedicated panel featuring full product management (create, edit, variant configuration, S3-based image uploads), order pipeline tracking with status updates, customer management with approval workflows, and a reports and analytics dashboard — all built with the same MVVM and Riverpod patterns as the customer app.
+
+The application is now live on both the Google Play Store and Apple App Store.`,
     banner: "./assets/images/projects/juansmart/juansmart_thumbnail_2.webp",
     features: [
       "Clean MVVM architecture with clear separation of concerns",
       "Riverpod state management for reactive and testable UI",
       "GoRouter for declarative, type-safe navigation",
       "Dio HTTP client with custom header and logging interceptors",
+      "Token refresh interceptor with automatic retry on 401 responses",
       "Multi-environment support (Dev, Stage, Production)",
       "Freezed for immutable state and model classes with code generation",
       "Feature-based modular folder structure",
@@ -31,6 +34,20 @@ The application has been submitted to both the Google Play Store and Apple App S
       "Localization support with Flutter gen-l10n",
       "Automated build scripts for Android AAB and iOS IPA releases",
       "Version management with configuration-driven build numbers",
+      "Dual-panel architecture — customer storefront and admin/seller panel in a single codebase",
+      "Role-based access control with privilege API to route users to the correct panel",
+      "Admin product management — create, edit, variant configuration, S3 presigned URL image upload, and status toggle",
+      "Admin order management — tab-based status pipeline (Placed, Confirmed, Dispatched, Delivered, Cancelled) with order and payment status updates",
+      "Admin customer management — customer list, details, order history per customer, and approval workflow",
+      "Admin reports and analytics — sales, orders, and customer reports with date range picker and export",
+      "Seller registration and approval workflow",
+      "Deep linking support with app_links for universal links",
+      "OTP-based verification for account recovery and password reset",
+      "In-app WebView for policies, terms, and help content",
+      "Shimmer loading states for improved perceived performance",
+      "SQLite local storage for offline data persistence",
+      "Connectivity monitoring with network state awareness",
+      "Share / invite friends with referral flow",
     ],
     techStack: [
       "Flutter",
@@ -44,8 +61,16 @@ The application has been submitted to both the Google Play Store and Apple App S
       "Apple App Store",
       "Push Notifications (Firebase Cloud Messaging)",
       "Crash Reporting (Firebase Crashlytics)",
-      "Social Login - Google",
-      "Clean architechture principles (MVVM, Use Cases, Repositories)",
+      "Firebase Authentication",
+      "Social Login (Google Sign-In)",
+      "Deep Linking (app_links)",
+      "S3 Presigned URL Image Upload",
+      "Image Picker",
+      "SQLite (sqflite)",
+      "WebView Flutter",
+      "Connectivity Plus",
+      "Share Plus",
+      "Clean Architecture (MVVM, Use Cases, Repositories)",
     ],
     screenshots: {
       mobile: [
@@ -83,6 +108,16 @@ The application has been submitted to both the Google Play Store and Apple App S
           "Designing a modular architecture that scales well as new features are added was critical. Implementing MVVM with Riverpod required careful planning of provider scoping, dependency injection, and state flow to avoid tight coupling between features while maintaining a consistent development pattern across the team.",
       },
       {
+        title: "Dual-Panel Architecture in a Single Codebase",
+        description:
+          "Building both a customer-facing storefront and a full admin/seller management panel within the same Flutter project required careful role-based routing, shared component reuse without coupling, and separate navigation stacks. A privilege check API at login determines which panel the user lands in, and GoRouter guards enforce access boundaries throughout the session.",
+      },
+      {
+        title: "S3 Presigned URL Image Upload Flow",
+        description:
+          "Product image uploads for the admin panel required a multi-step flow: requesting a presigned URL from the backend, uploading the image directly to S3, then notifying the backend to mark the upload as complete. Coordinating this sequence reliably — with proper error handling at each step — while keeping the UI responsive was a non-trivial challenge.",
+      },
+      {
         title: "Multi-Environment Configuration",
         description:
           "Setting up separate entry points for Dev, Stage, and Production environments with different API endpoints, configurations, and build settings required a well-thought-out approach. Each environment needed its own Dio client configuration, interceptors, and error handling strategies.",
@@ -105,6 +140,11 @@ The application has been submitted to both the Google Play Store and Apple App S
           "Using Freezed and build_runner for generating immutable state classes, union types, and JSON serialization code significantly reduces boilerplate and eliminates entire categories of bugs related to mutable state and manual serialization.",
       },
       {
+        title: "Role-Based Routing Needs to be a First-Class Concern",
+        description:
+          "Embedding an admin/seller panel in the same app as the customer storefront works well only when role-based routing and access control are designed upfront. Retrofitting privilege checks and navigation guards later creates a lot of rework — establishing this boundary early kept the two panels cleanly separated throughout development.",
+      },
+      {
         title: "Build Scripts are Essential for Release Management",
         description:
           "Automating the build process with custom shell scripts for version bumping, building AABs and IPAs, and managing platform-specific configurations streamlines the release workflow and reduces human error during deployments.",
@@ -118,12 +158,13 @@ The application has been submitted to both the Google Play Store and Apple App S
       "Clean, maintainable codebase following industry best practices",
     ],
     keyAccomplishments: [
-      "Built a production-ready e-commerce app with clean MVVM architecture",
+      "Built a production-ready e-commerce app with clean MVVM architecture, live on both the Google Play Store and Apple App Store",
+      "Delivered a full admin/seller panel (product management, order pipeline, customer management, reports) embedded in the same Flutter codebase with role-based routing",
+      "Implemented S3 presigned URL image upload flow for admin product creation and editing",
       "Implemented comprehensive multi-environment setup with separate entry points",
       "Established automated build and release pipeline for both platforms",
-      "Successfully submitted to Google Play Store and Apple App Store",
       "Created reusable base classes and patterns for rapid feature development",
-      "Implemented robust API layer with Dio interceptors for logging and authentication",
+      "Implemented robust API layer with Dio interceptors for logging, authentication, and automatic token refresh",
     ],
   },
   "chaat-anna": {
